@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
     {
         // 1. Admin & Employee Users
         $admin = User::firstOrCreate(
-            ['email' => 'admin@clinic.com'],
+            ['email' => 'admin@alzubaidi.com'],
             [
                 'name' => 'المدير العام (المصطفى)',
                 'username' => 'admin',
@@ -25,7 +25,7 @@ class DatabaseSeeder extends Seeder
         );
 
         $employee = User::firstOrCreate(
-            ['email' => 'employee@clinic.com'],
+            ['email' => 'employee@alzubaidi.com'],
             [
                 'name' => 'الموظف أحمد',
                 'username' => 'employee',

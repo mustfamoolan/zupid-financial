@@ -9,19 +9,10 @@ import { Wallet, AlertCircle } from 'lucide-react';
 
 export default function Login() {
     const { data, setData, post, processing, errors } = useForm({
-        login: 'admin',
-        password: 'password',
+        login: '',
+        password: '',
         remember: true,
-        roleBadge: 'صلاحيات الأدمن كاملة',
     });
-
-    const handleRoleSelect = (loginVal: string, badgeVal: string) => {
-        setData((prevData) => ({
-            ...prevData,
-            login: loginVal,
-            roleBadge: badgeVal,
-        }));
-    };
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
@@ -30,7 +21,7 @@ export default function Login() {
 
     return (
         <>
-            <Head title="تسجيل الدخول - النظام المالي للعيادات" />
+            <Head title="تسجيل الدخول - المنظومة المالية" />
             <div
                 className="min-h-screen flex flex-col items-center justify-center bg-background text-foreground px-4"
                 dir="rtl"
@@ -41,17 +32,17 @@ export default function Login() {
                         <Wallet className="h-6 w-6" />
                     </div>
                     <div className="text-center">
-                        <h1 className="text-2xl font-bold tracking-tight">النظام المالي للعيادات الطبية</h1>
-                        <p className="text-sm text-muted-foreground mt-1">المنظومة المالية الموحدة للاستقبال والأطباء والقطاعات</p>
+                        <h1 className="text-2xl font-bold tracking-tight">المنظومة المالية الموحدة</h1>
+                        <p className="text-sm text-muted-foreground mt-1">نظام إدارة الحسابات والزبائن والجداول الحسابية</p>
                     </div>
                 </div>
 
                 {/* Card */}
-                <Card className="w-full max-w-sm">
+                <Card className="w-full max-w-sm shadow-md">
                     <CardHeader className="space-y-1 text-center">
                         <CardTitle className="text-xl">تسجيل الدخول</CardTitle>
                         <CardDescription>
-                            أدخل اسم المستخدم وكلمة المرور للوصول إلى النظام
+                            أدخل اسم المستخدم وكلمة المرور للوصول إلى حسابتك
                         </CardDescription>
                     </CardHeader>
 
@@ -64,27 +55,6 @@ export default function Login() {
                             </div>
                         )}
 
-                        {/* Quick Role Switcher */}
-                        <div className="space-y-1.5 text-right">
-                            <Label className="text-xs text-muted-foreground">اختر الحساب الجاهز للتجربة:</Label>
-                            <div className="grid grid-cols-2 gap-1.5 p-1 bg-muted rounded-md text-xs">
-                                <button
-                                    type="button"
-                                    onClick={() => handleRoleSelect('admin', 'صلاحيات الأدمن كاملة')}
-                                    className={`py-1.5 rounded transition ${data.login === 'admin' ? 'bg-background font-bold shadow-sm text-foreground' : 'text-muted-foreground hover:text-foreground'}`}
-                                >
-                                    حساب أدمن (admin)
-                                </button>
-                                <button
-                                    type="button"
-                                    onClick={() => handleRoleSelect('employee', 'حساب موظف')}
-                                    className={`py-1.5 rounded transition ${data.login === 'employee' ? 'bg-background font-bold shadow-sm text-foreground' : 'text-muted-foreground hover:text-foreground'}`}
-                                >
-                                    حساب موظف (employee)
-                                </button>
-                            </div>
-                        </div>
-
                         <form onSubmit={handleSubmit} className="space-y-4 text-right">
                             {/* Username / Email */}
                             <div className="space-y-2">
@@ -92,7 +62,7 @@ export default function Login() {
                                 <Input
                                     id="login"
                                     type="text"
-                                    placeholder="أدخل اسم المستخدم..."
+                                    placeholder="اسم المستخدم..."
                                     value={data.login}
                                     onChange={(e) => setData('login', e.target.value)}
                                     autoComplete="username"
@@ -116,11 +86,6 @@ export default function Login() {
                                     dir="ltr"
                                     required
                                 />
-                            </div>
-
-                            <div className="flex items-center justify-between text-xs pt-1">
-                                <span className="text-muted-foreground">التصنيف الحالي:</span>
-                                <Badge variant="secondary">{data.roleBadge}</Badge>
                             </div>
 
                             <Button type="submit" disabled={processing} className="w-full font-bold">
