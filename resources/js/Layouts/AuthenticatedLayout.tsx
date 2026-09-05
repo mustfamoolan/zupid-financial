@@ -68,9 +68,9 @@ export default function AuthenticatedLayout({ children, header }: AuthenticatedP
             <div className="flex h-14 items-center border-b border-border px-6">
                 <Link href="/customers" className="flex items-center gap-2.5">
                     <div className="flex h-8 w-8 items-center justify-center rounded-md bg-primary text-primary-foreground font-bold">
-                        🏥
+                        <Wallet className="h-4 w-4" />
                     </div>
-                    <span className="font-semibold text-sm">المركز الطبي المالي</span>
+                    <span className="font-semibold text-sm">المنظومة المالية الموحدة</span>
                 </Link>
             </div>
 
