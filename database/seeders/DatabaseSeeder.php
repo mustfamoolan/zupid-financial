@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
             [
                 'name' => 'المدير العام (المصطفى)',
                 'username' => 'admin',
-                'password' => Hash::make('password'),
+                'password' => Hash::make('12345678'),
                 'role' => 'admin',
             ]
         );
@@ -29,7 +29,7 @@ class DatabaseSeeder extends Seeder
             [
                 'name' => 'الموظف أحمد',
                 'username' => 'employee',
-                'password' => Hash::make('password'),
+                'password' => Hash::make('12345678'),
                 'role' => 'employee',
             ]
         );
